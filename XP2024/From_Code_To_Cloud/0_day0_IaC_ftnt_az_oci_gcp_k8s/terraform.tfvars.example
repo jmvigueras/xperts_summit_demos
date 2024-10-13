@@ -1,0 +1,12 @@
+# AWS Environment
+access_key = "xxx"
+secret_key = "xxx"
+
+# Change to your own Github token for deployment with Terraform
+github_token = "ghp_xxx"
+
+# Lacework Agent data
+lacework_agent = {
+  token      = "xxxxx"
+  server_url = "https://api.xxx.lacework.net"
+}

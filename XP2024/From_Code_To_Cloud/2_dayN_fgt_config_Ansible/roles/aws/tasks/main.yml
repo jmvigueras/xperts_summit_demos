@@ -1,0 +1,79 @@
+---
+# Fortigate config
+- name: Create Firewall VIP APP1
+  fortios_firewall_vip:
+   vdom: "{{ vdom }}"
+   access_token: "{{ fortios_access_token }}"
+   state: "present"
+   firewall_vip:
+    name: "{{ app_1_vip_name }}"
+    type: "static-nat"
+    extintf: "{{ fgt_src_intf }}"
+    extip: "{{ fgt_ext_ip }}"
+    extport: "{{ app_1_port }}"
+    mappedport: "{{ app_1_port }}"
+    portforward: "enable"
+    mappedip:
+     - range: "{{ mapped_ip }}"
+
+- name: Create Firewall Policy allow APP 1 VIP inbound traffic
+  fortios_firewall_policy:
+   vdom: "{{ vdom }}"
+   access_token: "{{ fortios_access_token }}"
+   state: "present"
+   firewall_policy:
+    policyid: 100  # Adjust policy ID as needed
+    name: "{{ app_1_vip_name }}"
+    srcintf:
+     - name: "{{ fgt_src_intf }}"  # Specify the source interface
+    dstintf:
+     - name: "{{ fgt_dst_intf }}"  # Specify the destination interface
+    srcaddr:
+     - name: "all"
+    dstaddr:
+     - name: "{{ app_1_vip_name }}"
+    service:
+     - name: "ALL"
+    action: "accept"
+    nat: "enable"
+    schedule: "always"
+    logtraffic: "all"
+
+- name: Create Firewall VIP APP2
+  fortios_firewall_vip:
+   vdom: "{{ vdom }}"
+   access_token: "{{ fortios_access_token }}"
+   state: "present"
+   firewall_vip:
+    name: "{{ app_2_vip_name }}"
+    type: "static-nat"
+    extintf: "{{ fgt_src_intf }}"
+    extip: "{{ fgt_ext_ip }}"
+    extport: "{{ app_2_port }}"
+    mappedport: "{{ app_2_port }}"
+    portforward: "enable"
+    mappedip:
+     - range: "{{ mapped_ip }}"
+
+- name: Create Firewall Policy allow APP 2 VIP inbound traffic
+  fortios_firewall_policy:
+   vdom: "{{ vdom }}"
+   access_token: "{{ fortios_access_token }}"
+   state: "present"
+   firewall_policy:
+    policyid: 101  # Adjust policy ID as needed
+    name: "{{ app_2_vip_name }}"
+    srcintf:
+     - name: "{{ fgt_src_intf }}"  # Specify the source interface
+    dstintf:
+     - name: "{{ fgt_dst_intf }}"  # Specify the destination interface
+    srcaddr:
+     - name: "all"
+    dstaddr:
+     - name: "{{ app_2_vip_name }}"
+    service:
+     - name: "ALL"
+    action: "accept"
+    nat: "enable"
+    schedule: "always"
+    logtraffic: "all"

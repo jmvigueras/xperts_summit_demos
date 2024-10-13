@@ -16,17 +16,19 @@ locals {
   vpc_n-s_inspection_cidr      = "172.20.200.0/24"
 
   spoke_sdwan_cidrs = ["192.168.0.0/16"]
-  /*
+  
   // Update with FortigateCNF GWLBe deployed from FortigateCNF console
-  vpc_n-s_gwlbe_az1_id = "vpce-0f482e4cd43cd6a50"
-  vpc_n-s_gwlbe_az2_id = "vpce-0c3d5ea3131060201"
-  vpc_tgw_gwlbe_az1_id = "vpce-010046280bbe06135"
-  vpc_tgw_gwlbe_az2_id = "vpce-0387937e724e10d76"
-  */ 
+  vpc_n-s_gwlbe_az1_id = "vpce-0d9fe65c1c719761f"
+  vpc_n-s_gwlbe_az2_id = "vpce-0d3d7897135664144"
+  vpc_tgw_gwlbe_az1_id = "vpce-0a167bceca3b6e350"
+  vpc_tgw_gwlbe_az2_id = "vpce-083f0c7a9bb55fa4a"
+
+  /*
   vpc_n-s_gwlbe_az1_id = null
   vpc_n-s_gwlbe_az2_id = null
   vpc_tgw_gwlbe_az1_id = null
   vpc_tgw_gwlbe_az2_id = null
+  */
 
   #-----------------------------------------------------------------------------------------------------
   # FGT SDWAN N-S

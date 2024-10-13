@@ -1,0 +1,12 @@
+# AWS Environment
+access_key = "xxx"
+secret_key = "xxx"
+
+// GCP Environment
+project = "your-project
+
+// Lacework Agent data
+lacework_agent = {
+  token      = "40d033d56c7904cc30503ae70321116db5cd5cacd2b9b654153ab812"
+  server_url = "https://api.fra.lacework.net"
+}

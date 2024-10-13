@@ -1,0 +1,8 @@
+[__CSP___fortigates]
+__CSP___fgt ansible_host=__FGT_PUBLIC_IP__ fortios_access_token=__FGT_ACCESS_TOKEN__
+
+[__CSP___fortigates:vars]
+ansible_network_os=fortinet.fortios.fortios
+vdom=root
+fortigate_token=__FGT_ACCESS_TOKEN__
+

