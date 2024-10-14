@@ -1,4 +1,4 @@
-# Demos showed in Xperts Summit
+# Demos showed in Xperts Summits
 ## Introduction
 
 This repository contain Terraform code of demos showed in an Xperts Summits. 
@@ -9,9 +9,9 @@ This repository contain Terraform code of demos showed in an Xperts Summits.
 * AWS VPC central inspection in a HUB and spoke topology for N-S and VPC for E-W traffic inspecction with Fortinet Fortigate CNF Firewall as a Service. [AWS_TGW_FortigateCNF](./XP2023/AWS_TGW_FortigateCNF/)
 
 ### Xperts Sumit 2024:
-* From code to cloud demo, deploy infrastructure in 4 Cloud Providers allowing to publish application in a distributed Kubernetes clusters.
-[From_Code_To_Cloud](./XP2024/From_Code_To_Cloud/)
-
+* Code to cloud demo, deploy infrastructure in 4 Cloud Providers allowing to publish application in a distributed Kubernetes clusters.
+[Code_To_Cloud](./XP2024/Code_To_Cloud/)
+* Fortinet autoscale, deploy a VPC inspección within AWS using and Autoscalling Groups and Fortinet auto scale. [FortiGate_Autoscale](./XP2024/FortiGate_Autoscale/). You can see a video demo of this deployment. [[Link to video]](https://youtu.be/5T8BDYwmVUs).
 
 ## Support
 This a personal repository with goal of testing and demo Fortinet solutions on the Cloud. No support is provided and must be used by your own responsability. Cloud Providers will charge for this deployments, please take it in count before proceed.
